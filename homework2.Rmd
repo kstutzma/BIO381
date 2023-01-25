@@ -1,5 +1,5 @@
 ---
-title: "index"
+title: "homework2"
 author: "KS"
 date: "2023-01-25"
 output: html_document
@@ -9,7 +9,4 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Homework for BIO 381
-
-## [Week 2 Homework](homework2.html)
-
+Maybe, this time?
