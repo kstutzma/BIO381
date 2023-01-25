@@ -11,4 +11,5 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Homework for BIO 381
 
-## [Week 2 Homework ](https://github.com/kstutzma/StutzmanBIO381/blob/main/newpage.html)
+## [Week 2 Homework ](newpage.html)
+
