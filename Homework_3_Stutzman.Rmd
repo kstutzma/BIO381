@@ -11,16 +11,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Homework 3
 
-1. Use `\t+` to find tabs and then replace with a `,` - if you don't use the `+` on `\t` it replaces with a comma for each tab
+1. Use `\t+` to find tabs and then replace with a `,`. If you don't use the `+` on `\t` expression, it replaces with a comma for each tab.
 
-2. To find use `^(\w+),\s(\w+),\s(.+)` and replace with `\2 \1 (\3)` Here you are searching for the start of the line, then capturing the first word, then finding the comma and space, then capturing the second word, then finding the comma and space, and then capturing the final phrase using the period to find any character except a line break. To replace, we re-order the three captures and add spaces and a parentheses
+2. To find use `^(\w+),\s(\w+),\s(.+)` and replace with `\2 \1 (\3)` Here you are searching for the start of the line, then capturing the first word, then finding the comma and space, then capturing the second word, then finding the comma and space, and then capturing the final phrase using the period to find any character except a line break. To replace, we re-order the three captures and add spaces and a parenthesis. 
 
 3. To find use `(\d)\s(\d+)` and then replace with `\1\n\2`. Here you are searching for a single number, capturing it, then a space, and then multiple numbers and capturing it. You keep the two captures and replace the space with the line break
 
 4. To find use `(\d{2,})\s(\w*.+)\.(\w+)` and then replace with `\2_\1.\3`. Here we are finding 2+ digits and capturing them, then a space, then a word phrase until finding a period and caputing that, then a word character or more and capturing that. Then we move the second capture to the front, underscore, insert first capture, add a period, and insert the 3rd capture. 
 
-5. To find use `(^\w)\w+,(\w+),\d+.\d,(\d+)` and then replace with `\1_\2,\3`. Here we are finding and capturing the first letter at the beginning of the line, then the rest of the word and comma, then capturing the second word, then a comma, then the first number set including decimals, and then capturing the second number set. We replace by keeping the first letter, then underscoring, then the second word, a comma, and the final number set
+5. To find use `(^\w)\w+,(\w+),\d+.\d,(\d+)` and then replace with `\1_\2,\3`. Here we are finding and capturing the first letter at the beginning of the line, separate from the rest of the word and comma, then capturing the second word, then a comma, then the first number set including decimals, and then capturing the second number set. We replace by keeping the first letter, then underscoring, then the second word, a comma, and the final number set.
 
-6. To find use `(^\w)\w+,(\w{4})\w+,\d+.\d,(\d+)` and replace with `\1_\2,\3`. Very similar to the above question, however we are diving up the second word and only keeping the first 4 letters.
+6. To find use `(^\w)\w+,(\w{4})\w+,\d+.\d,(\d+)` and replace with `\1_\2,\3`. Very similar to the above question, however we are divvying up the second word and only keeping the first 4 letters.
 
-7. To find use `(^\w{3})\w+,(\w{3})\w+,(\d+.\d),(\d+)` and replace with `\1\2, \4, \3`. Similar to above but we are keeping the first 3 letter of each word and then merging them, capturing second numerical set as well and then reordering the two sets of numerical information and inserting commas and spaces.
+7. To find use `(^\w{3})\w+,(\w{3})\w+,(\d+.\d),(\d+)` and replace with `\1\2, \4, \3`. Similar to above but we are keeping the first 3 letters of each word and then merging them, capturing first numerical set as well and then reordering the two sets of numerical information and inserting commas and spaces.
