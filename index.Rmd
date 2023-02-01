@@ -13,3 +13,5 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## [Week 2 Homework](homework2.html)
 
+
+## [Week 3 Homework](Homework_3_Stutzman.html)
