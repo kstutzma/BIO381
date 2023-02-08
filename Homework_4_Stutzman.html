@@ -11,9 +11,9 @@
 
 <meta name="author" content="KS" />
 
-<meta name="date" content="2023-01-25" />
+<meta name="date" content="2023-02-08" />
 
-<title>index</title>
+<title>Stutzman_Homework4</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,24 +350,63 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">index</h1>
+<h1 class="title toc-ignore">Stutzman_Homework4</h1>
 <h4 class="author">KS</h4>
-<h4 class="date">2023-01-25</h4>
+<h4 class="date">2023-02-08</h4>
 
 </div>
 
 
-<div id="homework-for-bio-381" class="section level1">
-<h1>Homework for BIO 381</h1>
-<div id="week-2-homework" class="section level2">
-<h2><a href="homework2.html">Week 2 Homework</a></h2>
+<div id="question-1" class="section level2">
+<h2>Question 1:</h2>
+<pre class="r"><code>x &lt;- 1.1
+a &lt;- 2.2
+b &lt;- 3.3
+
+z &lt;- x^(a^b)
+print(z)</code></pre>
+<pre><code>## [1] 3.61714</code></pre>
+<pre class="r"><code>z &lt;- (x^a)^b
+print(z)</code></pre>
+<pre><code>## [1] 1.997611</code></pre>
+<pre class="r"><code>z &lt;- ((3*(x^3))+(2*(x^2))+1)
+print(z)</code></pre>
+<pre><code>## [1] 7.413</code></pre>
 </div>
-<div id="week-3-homework" class="section level2">
-<h2><a href="Homework_3_Stutzman.html">Week 3 Homework</a></h2>
+<div id="question-2" class="section level2">
+<h2>Question 2:</h2>
+<pre class="r"><code>y &lt;- c(seq(1,8), seq(7,1))
+print(y) </code></pre>
+<pre><code>##  [1] 1 2 3 4 5 6 7 8 7 6 5 4 3 2 1</code></pre>
+<pre class="r"><code>y &lt;- rep(1:5, times=1:5)
+print(y)</code></pre>
+<pre><code>##  [1] 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5</code></pre>
+<pre class="r"><code>y &lt;- rep(5:1, times=1:5)
+print(y)</code></pre>
+<pre><code>##  [1] 5 4 4 3 3 3 2 2 2 2 1 1 1 1 1</code></pre>
 </div>
-<div id="week-4-homework" class="section level2">
-<h2><a href="Homework_4_Stutzman.html">Week 4 Homework</a></h2>
+<div id="question-3" class="section level2">
+<h2>Question 3:</h2>
+<pre class="r"><code>z &lt;- runif(2)
+pc &lt;- c(sqrt((z[1]^2)+(z[2]^2)),atan(z[2]/z[1]))</code></pre>
 </div>
+<div id="question-4" class="section level2">
+<h2>Question 4:</h2>
+<pre class="r"><code>queue &lt;- c(&quot;sheep&quot;,&quot;fox&quot;,&quot;owl&quot;,&quot;ant&quot;)
+queue &lt;- c(queue, &quot;serpent&quot;)
+queue &lt;- queue[2:5]
+queue &lt;- c(&quot;donkey&quot;, queue)
+queue &lt;- queue[1:4]
+queue &lt;- c(queue[1:2], queue[4])
+queue &lt;- c(queue[1:2], &quot;aphid&quot;, queue[3])
+which(queue == &quot;aphid&quot;)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>#Aphid is 3rd</code></pre>
+</div>
+<div id="question-5" class="section level2">
+<h2>Question 5</h2>
+<pre class="r"><code>q &lt;- c(1:100)
+q2 &lt;- which(q%%7!=0&amp;q%%3!=0&amp;q%%2!=0)</code></pre>
 </div>
 
 

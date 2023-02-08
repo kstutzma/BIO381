@@ -1,0 +1,61 @@
+---
+title: "Stutzman_Homework4"
+author: "KS"
+date: "2023-02-08"
+output: html_document
+---
+
+## Question 1: 
+
+```{r}
+x <- 1.1
+a <- 2.2
+b <- 3.3
+
+z <- x^(a^b)
+print(z)
+z <- (x^a)^b
+print(z)
+z <- ((3*(x^3))+(2*(x^2))+1)
+print(z)
+```
+## Question 2:
+
+```{r}
+y <- c(seq(1,8), seq(7,1))
+print(y) 
+y <- rep(1:5, times=1:5)
+print(y)
+y <- rep(5:1, times=1:5)
+print(y)
+```
+
+## Question 3:
+
+```{r}
+z <- runif(2)
+pc <- c(sqrt((z[1]^2)+(z[2]^2)),atan(z[2]/z[1]))
+```
+
+## Question 4:
+
+```{r}
+queue <- c("sheep","fox","owl","ant")
+queue <- c(queue, "serpent")
+queue <- queue[2:5]
+queue <- c("donkey", queue)
+queue <- queue[1:4]
+queue <- c(queue[1:2], queue[4])
+queue <- c(queue[1:2], "aphid", queue[3])
+which(queue == "aphid")
+#Aphid is 3rd
+```
+
+## Question 5
+
+```{r}
+q <- c(1:100)
+q2 <- which(q%%7!=0&q%%3!=0&q%%2!=0)
+
+```
+
