@@ -11,9 +11,9 @@
 
 <meta name="author" content="KS" />
 
-<meta name="date" content="2023-01-25" />
+<meta name="date" content="2023-02-15" />
 
-<title>Not the index</title>
+<title>Homework 5</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,27 +350,137 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Not the index</h1>
+<h1 class="title toc-ignore">Homework 5</h1>
 <h4 class="author">KS</h4>
-<h4 class="date">2023-01-25</h4>
+<h4 class="date">2023-02-15</h4>
 
 </div>
 
 
-<div id="homework-for-bio-381" class="section level1">
-<h1>Homework for BIO 381</h1>
-<div id="week-2-homework" class="section level2">
-<h2><a href="homework2.html">Week 2 Homework</a></h2>
+<div id="question-1" class="section level2">
+<h2>Question 1:</h2>
+<pre class="r"><code>x &lt;- c(3:10) #concatinate values 3-10
+n_dims &lt;- sample(x, size = 1) #select random integer
+n_dims2 &lt;- (1:(n_dims^2))#vector of 1 to n dims^2
+n_dims3 &lt;- sample(x=n_dims2) #reshuffle
+
+matrix &lt;- matrix(data=n_dims3, nrow=n_dims) #create square matrix
+print(matrix)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    7    9    6    2   11
+## [2,]    1    4    8   24   20
+## [3,]   12    3   18   13   19
+## [4,]   10   14   22   15   16
+## [5,]   21   17   25   23    5</code></pre>
+<pre class="r"><code>t_matrix &lt;- t(matrix) #transpose matrix
+print(t_matrix)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    7    1   12   10   21
+## [2,]    9    4    3   14   17
+## [3,]    6    8   18   22   25
+## [4,]    2   24   13   15   23
+## [5,]   11   20   19   16    5</code></pre>
+<pre class="r"><code>sum(t_matrix[1,]) #sum of row 1</code></pre>
+<pre><code>## [1] 51</code></pre>
+<pre class="r"><code>mean(t_matrix[1,]) #mean of row 1</code></pre>
+<pre><code>## [1] 10.2</code></pre>
+<pre class="r"><code>sum(t_matrix[5,]) #sum of row 5</code></pre>
+<pre><code>## [1] 71</code></pre>
+<pre class="r"><code>mean(t_matrix[5,]) #sum of row 5</code></pre>
+<pre><code>## [1] 14.2</code></pre>
+<pre class="r"><code>e_matrix &lt;- eigen(t_matrix, symmetric = TRUE, only.values = FALSE, EISPACK = FALSE)
+print(e_matrix)</code></pre>
+<pre><code>## eigen() decomposition
+## $values
+## [1]  64.097570   9.869826   6.457357 -11.611577 -19.813176
+## 
+## $vectors
+##            [,1]       [,2]       [,3]       [,4]        [,5]
+## [1,] -0.2351942  0.3677845  0.7994418  0.4082242  0.06053169
+## [2,] -0.4681487 -0.3518012  0.2130351 -0.2606206 -0.73740467
+## [3,] -0.4612897  0.6515204 -0.5177456  0.1963076 -0.23693000
+## [4,] -0.5207323 -0.5478166 -0.1916586  0.5163640  0.35407640
+## [5,] -0.4914979  0.1280181  0.1035149 -0.6784257  0.52063841</code></pre>
+<pre class="r"><code>typeof(e_matrix$values) #double</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<pre class="r"><code>typeof(e_matrix$vectors) #double</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>The matrix represents a set of data points. Principal component
+analysis looks at the underlying structure of the data using
+eigenvectors and eigenvalues. Eigenvectors represent directions and
+eigenvalues represent the magnitude/spread in that direction.
+Eigenvectors and values are paired.</p>
 </div>
-<div id="week-3-homework" class="section level2">
-<h2><a href="Homework_3_Stutzman.html">Week 3 Homework</a></h2>
+<div id="question-2" class="section level2">
+<h2>Question 2</h2>
+<pre class="r"><code>set.seed(40)
+
+my_matrix &lt;- matrix(runif(16), ncol=4) #create 4x4 matrix of random uniform values
+print(my_matrix)</code></pre>
+<pre><code>##           [,1]      [,2]       [,3]       [,4]
+## [1,] 0.6835820 0.1950091 0.37388807 0.07758767
+## [2,] 0.8729038 0.4612009 0.14129812 0.23489634
+## [3,] 0.6901173 0.2035352 0.09615594 0.95950016
+## [4,] 0.1159361 0.5908492 0.70287391 0.79510013</code></pre>
+<pre class="r"><code>z &lt;- runif(100) #create 100 numbers
+my_logical &lt;-(z&gt;.5)#apply T/F question/statement and create list
+
+my_letter &lt;- sample(letters) #letters in random order
+
+my_list &lt;- list(my_matrix, my_logical, my_letter) #create list of three elements
+
+new_list &lt;- list(my_matrix[2,2], my_logical[2], my_letter[2]) #create new list with selected elements
+
+typeof(my_matrix[[1]]) #check types of for new list</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<pre class="r"><code>typeof(my_logical[[1]])</code></pre>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<pre class="r"><code>typeof(my_letter[[1]])</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>newer_list &lt;- c(my_matrix[[1]],my_logical[[1]],my_letter[[1]])
+typeof(newer_list) #it is a character</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
 </div>
-<div id="week-4-homework" class="section level2">
-<h2><a href="Homework_4_Stutzman.html">Week 4 Homework</a></h2>
-</div>
-<div id="week-5-homework" class="section level2">
-<h2><a href="Homework_5_Stutzman.html">Week 5 Homework</a></h2>
-</div>
+<div id="question-3" class="section level2">
+<h2>Question 3</h2>
+<pre class="r"><code>my_unis &lt;- runif(26, min=0, max=10) #create 26 random uniform values from 0 - 10
+my_letters &lt;- sample(LETTERS, 26) # create 26 CAPITAL letters
+dframe &lt;- data.frame(my_unis, my_letters) #put into data frame
+
+dframe$my_unis[sample(nrow(dframe), 4)] &lt;- NA #replace 4 values in my_unis with NAs
+
+which(is.na(dframe$my_unis)) #find locations of NAs</code></pre>
+<pre><code>## [1]  1 11 23 26</code></pre>
+<pre class="r"><code>dframe[order(dframe$my_letters), ] #alphabetize</code></pre>
+<pre><code>##      my_unis my_letters
+## 13 1.3708365          A
+## 1         NA          B
+## 3  8.8568500          C
+## 19 0.5350871          D
+## 11        NA          E
+## 4  5.8729061          F
+## 26        NA          G
+## 21 5.8632543          H
+## 6  6.5442359          I
+## 17 1.8449909          J
+## 23        NA          K
+## 10 8.9141213          L
+## 5  1.7680601          M
+## 15 8.7295959          N
+## 14 0.8629730          O
+## 8  5.1078198          P
+## 24 5.2134551          Q
+## 18 0.1925296          R
+## 12 5.1220926          S
+## 16 8.1725506          T
+## 9  5.3547197          U
+## 25 6.3754358          V
+## 22 5.4935136          W
+## 7  5.5941055          X
+## 2  6.5525582          Y
+## 20 5.8425399          Z</code></pre>
+<pre class="r"><code>mean(dframe$my_unis, na.rm = T) #find mean of random values</code></pre>
+<pre><code>## [1] 5.008374</code></pre>
 </div>
 
 

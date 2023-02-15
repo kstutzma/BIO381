@@ -1,5 +1,5 @@
 ---
-title: "index"
+title: "Not the index"
 author: "KS"
 date: "2023-01-25"
 output: html_document
@@ -18,3 +18,4 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## [Week 4 Homework](Homework_4_Stutzman.html)
 
+## [Week 5 Homework](Homework_5_Stutzman.html)

@@ -1,0 +1,79 @@
+---
+title: "Homework 5"
+author: "KS"
+date: "2023-02-15"
+output: html_document
+---
+
+## Question 1:
+
+```{r}
+x <- c(3:10) #concatinate values 3-10
+n_dims <- sample(x, size = 1) #select random integer
+n_dims2 <- (1:(n_dims^2))#vector of 1 to n dims^2
+n_dims3 <- sample(x=n_dims2) #reshuffle
+
+matrix <- matrix(data=n_dims3, nrow=n_dims) #create square matrix
+print(matrix)
+
+t_matrix <- t(matrix) #transpose matrix
+print(t_matrix)
+
+sum(t_matrix[1,]) #sum of row 1
+mean(t_matrix[1,]) #mean of row 1
+
+sum(t_matrix[5,]) #sum of row 5
+mean(t_matrix[5,]) #sum of row 5
+
+e_matrix <- eigen(t_matrix, symmetric = TRUE, only.values = FALSE, EISPACK = FALSE)
+print(e_matrix)
+
+typeof(e_matrix$values) #double
+typeof(e_matrix$vectors) #double
+```
+The matrix represents a set of data points. Principal component analysis looks at the underlying structure of the data using eigenvectors and eigenvalues. Eigenvectors represent directions and eigenvalues represent the magnitude/spread in that direction. Eigenvectors and values are paired. 
+
+
+## Question 2
+
+```{r}
+set.seed(40)
+
+my_matrix <- matrix(runif(16), ncol=4) #create 4x4 matrix of random uniform values
+print(my_matrix)
+
+z <- runif(100) #create 100 numbers
+my_logical <-(z>.5)#apply T/F question/statement and create list
+
+my_letter <- sample(letters) #letters in random order
+
+my_list <- list(my_matrix, my_logical, my_letter) #create list of three elements
+
+new_list <- list(my_matrix[2,2], my_logical[2], my_letter[2]) #create new list with selected elements
+
+typeof(my_matrix[[1]]) #check types of for new list
+typeof(my_logical[[1]])
+typeof(my_letter[[1]])
+
+newer_list <- c(my_matrix[[1]],my_logical[[1]],my_letter[[1]])
+typeof(newer_list) #it is a character
+```
+
+
+## Question 3
+
+```{r}
+my_unis <- runif(26, min=0, max=10) #create 26 random uniform values from 0 - 10
+my_letters <- sample(LETTERS, 26) # create 26 CAPITAL letters
+dframe <- data.frame(my_unis, my_letters) #put into data frame
+
+dframe$my_unis[sample(nrow(dframe), 4)] <- NA #replace 4 values in my_unis with NAs
+
+which(is.na(dframe$my_unis)) #find locations of NAs
+
+dframe[order(dframe$my_letters), ] #alphabetize
+
+mean(dframe$my_unis, na.rm = T) #find mean of random values
+
+```
+
