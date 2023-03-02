@@ -1,0 +1,84 @@
+---
+title: "Homework_6_Stutzman"
+author: "KS"
+date: "2023-03-02"
+output: html_document
+---
+
+Load in `library(dplry)` and `library(tidyverse`), hidden below
+
+```{r include=FALSE}
+library(dplyr)
+library(tidyverse)
+```
+
+```{r}
+data(iris)
+str(iris)
+```
+
+1. There are 150 observations of 5 variables. 
+
+```{r}
+iris1 <- filter(iris, Species %in% c("virginica", "versicolor"), Sepal.Length > 6, Sepal.Width > 2.5 )
+```
+
+2. There are 56 observation of 5 variables.
+
+```{r}
+iris2 <- select(iris1, Species, Sepal.Length, Sepal.Width)
+```
+
+3. There are 56 observations of 3 variables.
+
+```{r}
+iris3 <- arrange(iris2, by=desc(Sepal.Length))
+head(iris3)
+```
+
+4. Above
+
+```{r}
+iris4 <- mutate(iris3, Sepal.Area=Sepal.Length*Sepal.Width)
+```
+
+5. There are 56 observations of 4 variables
+
+```{r}
+iris5 <- summarize(iris4, meanLength=mean(Sepal.Length), meanWidth=mean(Sepal.Width), totalnumber=n())
+print(iris5)
+```
+
+6. Above
+
+```{r}
+iris6 <- group_by(iris4, Species)
+summarize(iris6, meanLength=mean(Sepal.Length), meanWidth=mean(Sepal.Width), totalnumber=n())
+print(iris6)
+```
+
+7. Above 
+
+```{r}
+irisFinal <- iris %>% 
+  filter(Species %in% c("virginica", "versicolor"), Sepal.Length > 6, Sepal.Width > 2.5 ) %>% 
+  select(Species, Sepal.Length, Sepal.Width) %>% 
+  arrange(by=desc(Sepal.Length)) %>% 
+  mutate(Sepal.Area=Sepal.Length*Sepal.Width) %>% 
+  group_by(Species) %>% 
+  summarize(meanLength=mean(Sepal.Length), meanWidth=mean(Sepal.Width), totalnumber=n())
+```
+
+8. Above
+
+```{r}
+irisLong <- iris %>% 
+  pivot_longer(cols = Sepal.Length:Petal.Width,names_to = "Measure", values_to = "Value")
+
+```
+
+9. Above
+
+
+
+

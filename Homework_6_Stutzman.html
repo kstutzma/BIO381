@@ -11,9 +11,9 @@
 
 <meta name="author" content="KS" />
 
-<meta name="date" content="2023-01-25" />
+<meta name="date" content="2023-03-02" />
 
-<title>Not the index</title>
+<title>Homework_6_Stutzman</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,31 +350,98 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Not the index</h1>
+<h1 class="title toc-ignore">Homework_6_Stutzman</h1>
 <h4 class="author">KS</h4>
-<h4 class="date">2023-01-25</h4>
+<h4 class="date">2023-03-02</h4>
 
 </div>
 
 
-<div id="homework-for-bio-381" class="section level1">
-<h1>Homework for BIO 381</h1>
-<div id="week-2-homework" class="section level2">
-<h2><a href="homework2.html">Week 2 Homework</a></h2>
-</div>
-<div id="week-3-homework" class="section level2">
-<h2><a href="Homework_3_Stutzman.html">Week 3 Homework</a></h2>
-</div>
-<div id="week-4-homework" class="section level2">
-<h2><a href="Homework_4_Stutzman.html">Week 4 Homework</a></h2>
-</div>
-<div id="week-5-homework" class="section level2">
-<h2><a href="Homework_5_Stutzman.html">Week 5 Homework</a></h2>
-</div>
-<div id="week-6-homework" class="section level2">
-<h2><a href="Homework_6_Stutzman.html">Week 6 Homework</a></h2>
-</div>
-</div>
+<p>Load in <code>library(dplry)</code> and
+<code>library(tidyverse</code>), hidden below</p>
+<pre class="r"><code>data(iris)
+str(iris)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<ol style="list-style-type: decimal">
+<li>There are 150 observations of 5 variables.</li>
+</ol>
+<pre class="r"><code>iris1 &lt;- filter(iris, Species %in% c(&quot;virginica&quot;, &quot;versicolor&quot;), Sepal.Length &gt; 6, Sepal.Width &gt; 2.5 )</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>There are 56 observation of 5 variables.</li>
+</ol>
+<pre class="r"><code>iris2 &lt;- select(iris1, Species, Sepal.Length, Sepal.Width)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>There are 56 observations of 3 variables.</li>
+</ol>
+<pre class="r"><code>iris3 &lt;- arrange(iris2, by=desc(Sepal.Length))
+head(iris3)</code></pre>
+<pre><code>##     Species Sepal.Length Sepal.Width
+## 1 virginica          7.9         3.8
+## 2 virginica          7.7         3.8
+## 3 virginica          7.7         2.6
+## 4 virginica          7.7         2.8
+## 5 virginica          7.7         3.0
+## 6 virginica          7.6         3.0</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Above</li>
+</ol>
+<pre class="r"><code>iris4 &lt;- mutate(iris3, Sepal.Area=Sepal.Length*Sepal.Width)</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>There are 56 observations of 4 variables</li>
+</ol>
+<pre class="r"><code>iris5 &lt;- summarize(iris4, meanLength=mean(Sepal.Length), meanWidth=mean(Sepal.Width), totalnumber=n())
+print(iris5)</code></pre>
+<pre><code>##   meanLength meanWidth totalnumber
+## 1   6.698214  3.041071          56</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Above</li>
+</ol>
+<pre class="r"><code>iris6 &lt;- group_by(iris4, Species)
+summarize(iris6, meanLength=mean(Sepal.Length), meanWidth=mean(Sepal.Width), totalnumber=n())</code></pre>
+<pre><code>## # A tibble: 2 × 4
+##   Species    meanLength meanWidth totalnumber
+##   &lt;fct&gt;           &lt;dbl&gt;     &lt;dbl&gt;       &lt;int&gt;
+## 1 versicolor       6.48      2.99          17
+## 2 virginica        6.79      3.06          39</code></pre>
+<pre class="r"><code>print(iris6)</code></pre>
+<pre><code>## # A tibble: 56 × 4
+## # Groups:   Species [2]
+##    Species   Sepal.Length Sepal.Width Sepal.Area
+##    &lt;fct&gt;            &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+##  1 virginica          7.9         3.8       30.0
+##  2 virginica          7.7         3.8       29.3
+##  3 virginica          7.7         2.6       20.0
+##  4 virginica          7.7         2.8       21.6
+##  5 virginica          7.7         3         23.1
+##  6 virginica          7.6         3         22.8
+##  7 virginica          7.4         2.8       20.7
+##  8 virginica          7.3         2.9       21.2
+##  9 virginica          7.2         3.6       25.9
+## 10 virginica          7.2         3.2       23.0
+## # … with 46 more rows</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>Above</li>
+</ol>
+<pre class="r"><code>irisFinal &lt;- iris %&gt;% 
+  filter(Species %in% c(&quot;virginica&quot;, &quot;versicolor&quot;), Sepal.Length &gt; 6, Sepal.Width &gt; 2.5 ) %&gt;% 
+  select(Species, Sepal.Length, Sepal.Width) %&gt;% 
+  arrange(by=desc(Sepal.Length)) %&gt;% 
+  mutate(Sepal.Area=Sepal.Length*Sepal.Width) %&gt;% 
+  group_by(Species) %&gt;% 
+  summarize(meanLength=mean(Sepal.Length), meanWidth=mean(Sepal.Width), totalnumber=n())</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>Above</li>
+</ol>
+<pre class="r"><code>irisLong &lt;- iris %&gt;% 
+  pivot_longer(cols = Sepal.Length:Petal.Width,names_to = &quot;Measure&quot;, values_to = &quot;Value&quot;)</code></pre>
+<ol start="9" style="list-style-type: decimal">
+<li>Above</li>
+</ol>
 
 
 
