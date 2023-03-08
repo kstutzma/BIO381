@@ -1,0 +1,211 @@
+---
+title: "Homework 7"
+author: "KS"
+date: "2023-03-08"
+output: html_document
+---
+1. Start with random data
+
+The library is open
+```{r}
+library(ggplot2) # for graphics
+library(MASS)# for maximum likelihood estimation
+library(tidyverse)
+```
+
+Read in vector data
+```{r}
+# quick and dirty, a truncated normal distribution to work on the solution set
+
+z <- rnorm(n=3000,mean=0.2)
+z <- data.frame(1:3000,z)
+names(z) <- list("ID","myVar")
+z <- z[z$myVar>0,]
+str(z)
+summary(z$myVar)
+```
+
+Plot a histogram
+```{r}
+p1 <- ggplot(data=z, aes(x=myVar, y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) 
+print(p1)
+```
+
+Add an empirical density curve
+```{r}
+p1 <-  p1 +  geom_density(linetype="dotted",size=0.75)
+print(p1)
+```
+
+Get maximum likelihood parameters for normal
+```{r}
+normPars <- fitdistr(z$myVar,"normal")
+print(normPars)
+str(normPars)
+normPars$estimate["mean"] # note structure of getting a named attribute
+```
+
+Plot normal probability density
+```{r}
+meanML <- normPars$estimate["mean"]
+sdML <- normPars$estimate["sd"]
+
+xval <- seq(0,max(z$myVar),len=length(z$myVar))
+
+ stat <- stat_function(aes(x = xval, y = ..y..), fun = dnorm, colour="red", n = length(z$myVar), args = list(mean = meanML, sd = sdML))
+ p1 + stat
+```
+
+Plot exponential probability density
+```{r}
+expoPars <- fitdistr(z$myVar,"exponential")
+rateML <- expoPars$estimate["rate"]
+
+stat2 <- stat_function(aes(x = xval, y = ..y..), fun = dexp, colour="blue", n = length(z$myVar), args = list(rate=rateML))
+ p1 + stat + stat2
+```
+
+Plot uniform probability density
+```{r}
+stat3 <- stat_function(aes(x = xval, y = ..y..), fun = dunif, colour="darkgreen", n = length(z$myVar), args = list(min=min(z$myVar), max=max(z$myVar)))
+ p1 + stat + stat2 + stat3
+```
+
+Plot gamma probability density
+```{r}
+gammaPars <- fitdistr(z$myVar,"gamma")
+shapeML <- gammaPars$estimate["shape"]
+rateML <- gammaPars$estimate["rate"]
+
+stat4 <- stat_function(aes(x = xval, y = ..y..), fun = dgamma, colour="brown", n = length(z$myVar), args = list(shape=shapeML, rate=rateML))
+ p1 + stat + stat2 + stat3 + stat4
+```
+
+Plot beta probability density
+```{r}
+pSpecial <- ggplot(data=z, aes(x=myVar/(max(myVar + 0.1)), y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) + 
+  xlim(c(0,1)) +
+  geom_density(size=0.75,linetype="dotted")
+
+betaPars <- fitdistr(x=z$myVar/max(z$myVar + 0.1),start=list(shape1=1,shape2=2),"beta")
+shape1ML <- betaPars$estimate["shape1"]
+shape2ML <- betaPars$estimate["shape2"]
+
+statSpecial <- stat_function(aes(x = xval, y = ..y..), fun = dbeta, colour="orchid", n = length(z$myVar), args = list(shape1=shape1ML,shape2=shape2ML))
+pSpecial + statSpecial
+```
+
+
+
+
+2. Now a second time, with some of my data
+
+
+Read in vector data
+```{r}
+# loading in small seedling data for sampled sites that have been thinned and burned in NY & NH pitch pine barrens
+
+z <- read.csv("Thinned_Burned_Data_Bio381.csv",header=TRUE)
+z2 <- z[complete.cases(z$Total..),]
+
+```
+
+
+Plot a histogram
+```{r}
+z1 <- ggplot(data=z2, aes(x=Total.., y=after_stat(density))) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2, binwidth = 1) 
+print(z1)
+```
+
+Add an empirical density curve
+```{r}
+z1 <-  z1 +  geom_density(linetype="dotted",size=0.75)
+print(z1)
+```
+
+Get maximum likelihood parameters for normal
+```{r}
+znormPars <- fitdistr(z2$Total..,"normal", )
+print(znormPars)
+str(znormPars)
+znormPars$estimate["mean"] # note structure of getting a named attribute
+```
+
+Plot normal probability density
+```{r}
+zmeanML <- znormPars$estimate["mean"]
+zsdML <- znormPars$estimate["sd"]
+
+zxval <- seq(0,max(z2$Total..),len=length(z2$Total..))
+
+ zstat <- stat_function(aes(x = Total.., y = ..y..), fun = dnorm, colour="red", n = length(z2$Total..), args = list(mean = zmeanML, sd = zsdML))
+ z1 + zstat
+```
+
+Plot exponential probability density
+```{r}
+zexpoPars <- fitdistr(z2$Total..,"exponential")
+zrateML <- zexpoPars$estimate["rate"]
+
+zstat2 <- stat_function(aes(x = Total.., y = ..y..), fun = dexp, colour="blue", n = length(z2$Total..), args = list(rate=zrateML))
+ z1 + zstat + zstat2
+```
+
+Plot uniform probability density
+```{r}
+zstat3 <- stat_function(aes(x = Total.., y = ..y..), fun = dunif, colour="darkgreen", n = length(z2$Total..), args = list(min=min(z2$Total..), max=max(z2$Total..)))
+ z1 + zstat + zstat2 + zstat3
+```
+
+Plot gamma probability density
+```{r}
+zgammaPars <- fitdistr(z2$Total..,"gamma")
+zshapeML <- zgammaPars$estimate["shape"]
+zrateML <- zgammaPars$estimate["rate"]
+
+zstat4 <- stat_function(aes(x = Total.., y = ..y..), fun = dgamma, colour="brown", n = length(z2$Total..), args = list(shape=zshapeML, rate=zrateML))
+ z1 + zstat + zstat2 + zstat3 + zstat4
+```
+
+Plot beta probability density
+```{r}
+pSpecial <- ggplot(data=z2, aes(x=Total../(max(Total.. + 0.1)), y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) + 
+  xlim(c(0,1)) +
+  geom_density(size=0.75,linetype="dotted")
+
+betaPars <- fitdistr(x=z2$Total../max(z2$Total.. + 0.1),start=list(shape1=1,shape2=2),"beta")
+shape1ML <- betaPars$estimate["shape1"]
+shape2ML <- betaPars$estimate["shape2"]
+
+statSpecial <- stat_function(aes(x = Total.., y = ..y..), fun = dbeta, colour="orchid", n = length(z2$Total..), args = list(shape1=shape1ML,shape2=shape2ML))
+pSpecial + statSpecial
+```
+
+3. I think the exponential and gamma distributions fit best.
+
+4. Now simulating the data
+There are 107 observations, the rate is 0.269
+
+Generating a random exponential distribution
+
+```{r}
+q <- rexp(107, r=0.269)
+q <- data.frame(1:107,q)
+names(q) <- list("ID","myVar")
+
+qexpoPars <- fitdistr(q$myVar,"exponential")
+qrateML <- qexpoPars$estimate["rate"]
+
+q1 <- ggplot(data=q, aes(x=myVar, y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) 
+
+qstat2 <- stat_function(aes(x = myVar, y = ..y..), fun = dexp, colour="blue", n = length(q$myVar), args = list(rate=qrateML))
+ q1 + qstat2
+
+ z1 + zstat2
+```
+

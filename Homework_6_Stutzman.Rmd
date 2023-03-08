@@ -5,7 +5,7 @@ date: "2023-03-02"
 output: html_document
 ---
 
-Load in `library(dplry)` and `library(tidyverse`), hidden below
+Load in `library(dplyr)` and `library(tidyverse`), hidden below
 
 ```{r include=FALSE}
 library(dplyr)
