@@ -1,0 +1,148 @@
+---
+title: "Homework 8"
+author: "KS"
+date: "2023-03-22"
+output: html_document
+---
+Load in `library(tidyverse)` and `library(ggplot2)`, hidden below.
+
+```{r include=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
+## Paper
+
+1. Little, S. & Moore, E.B. 1950 "Effect of Prescribed Burns and Shelterwood Cutting on Reproduction of Shortleaf and Pitch Pine". Northeastern Forest Experiment Station, USFS, Upper Darby, PA. 
+
+## Hypothesis
+
+Number of repeat burns increases the number of pine seedlings present.
+
+## Study design, means, and standard deviation
+
+2. 14 1-acre plots; 2 plots left unburned.  
+Other 12, RxFire winter burn applied 1, 2, 3, 4, 5, & 6 times (1940-1946).  
+On half of plots in 1939, overstory oaks thinned via sheterwood. 
+On all plots, pine at 15 seed trees/acre.  
+Remaining oak overstory cut on half of each plot in winter 1946/47. Other half cut winter 1948/49.  
+
+As assessed in 1949,  
+-     unburned plots with 580 seedlings/acre  
+-     1 burn : 800 seedlings/acre  
+-     2 burn : 1,000 seedlings/acre  
+-     3 burn : 1,925 seedlings/acre  
+-     4 burn : 1,925 seedlings/acre  
+-     5 burn : 2,650 seedlings/acre  
+-     6 burn : 2,650 seedlings/acre  
+  
+  Assuming standard deviation is 100 seedlings groups 0-2; 200 seedlings 3-4; 400 seedlings 5-6
+
+## Making random data based on study data
+
+  3. Creating uniform distribution for each treatment group.
+```{r}
+noBurn <- rnorm(n=2, mean = 580, sd = 100)
+oneBurn <- rnorm(n=2, mean = 800, sd = 100)
+twoBurn <- rnorm(n=2, mean = 1000, sd = 100)
+threeBurn <- rnorm(n=2, mean = 1925, sd = 200)
+fourBurn <- rnorm(n=2, mean = 1925, sd = 200)
+fiveBurn <- rnorm(n=2, mean = 2650, sd = 400)
+sixBurn <- rnorm(n=2, mean = 2650, sd = 400)
+
+pineBurn <- data.frame(noBurn,oneBurn,twoBurn,threeBurn,fourBurn,fiveBurn,sixBurn)
+
+pineBurn <- pineBurn %>% 
+  pivot_longer(cols = noBurn:sixBurn,
+               names_to = "treatment",
+               values_to = "seedling_counts1")
+  
+pineBurn1 <- pineBurn[with(pineBurn, order(treatment)),]
+```
+  
+4. Create a ANOVA where we compare means
+
+```{r}
+A1 <- aov(pineBurn1$seedling_counts1~pineBurn$treatment)
+summary(A1)
+```
+```{r}
+ggplot(pineBurn1, aes(treatment, seedling_counts1)) +
+  geom_boxplot()
+```
+This does not yeild a significant p-value
+
+## Changing the means
+
+6. Changing means for a statistically significant result
+
+```{r}
+noBurn4 <- rnorm(n=2, mean = 570, sd = 100)
+oneBurn4 <- rnorm(n=2, mean = 790, sd = 100)
+twoBurn4 <- rnorm(n=2, mean = 990, sd = 100)
+threeBurn4 <- rnorm(n=2, mean = 1975, sd = 200)
+fourBurn4 <- rnorm(n=2, mean = 1975, sd = 200)
+fiveBurn4 <- rnorm(n=2, mean = 2725, sd = 400)
+sixBurn4 <- rnorm(n=2, mean = 2725, sd = 400)
+
+pineBurn4 <- data.frame(noBurn4,oneBurn4,twoBurn4,threeBurn4,fourBurn4,fiveBurn4,sixBurn4)
+
+pineBurn4 <- pineBurn4 %>% 
+  pivot_longer(cols = noBurn4:sixBurn4,
+               names_to = "treatment",
+               values_to = "seedling_counts1")
+  
+pineBurn5 <- pineBurn4[with(pineBurn4, order(treatment)),]
+```
+  
+I decreased the first 3 treatment groups by 10 and increased the final 4 treatment groups by 50 and the p value became significant. I started with a higher value, but it did not take much change to yeild a significant p-value. 
+
+```{r}
+A3 <- aov(pineBurn4$seedling_counts1~pineBurn4$treatment)
+summary(A3)
+```
+
+```{r}
+ggplot(pineBurn4, aes(treatment, seedling_counts1)) +
+  geom_boxplot()
+```
+
+
+
+## Increasing the sample size
+
+7. Increasing the sample size for a statistically significant result
+
+```{r}
+noBurn2 <- rnorm(n=3, mean = 580, sd = 100)
+oneBurn2 <- rnorm(n=3, mean = 800, sd = 100)
+twoBurn2 <- rnorm(n=3, mean = 1000, sd = 100)
+threeBurn2 <- rnorm(n=3, mean = 1925, sd = 200)
+fourBurn2 <- rnorm(n=3, mean = 1925, sd = 200)
+fiveBurn2 <- rnorm(n=3, mean = 2650, sd = 400)
+sixBurn2 <- rnorm(n=3, mean = 2650, sd = 400)
+
+pineBurn2 <- data.frame(noBurn2,oneBurn2,twoBurn2,threeBurn2,fourBurn2,fiveBurn2,sixBurn2)
+
+pineBurn2 <- pineBurn2 %>% 
+  pivot_longer(cols = noBurn2:sixBurn2,
+               names_to = "treatment",
+               values_to = "seedling_counts1")
+  
+pineBurn3 <- pineBurn2[with(pineBurn2, order(treatment)),]
+```
+
+While I started by trying n=100, it turns out I only needed one more sample in order to get a significant result. This means 3 samples of each treatment type.
+
+```{r}
+A2 <- aov(pineBurn2$seedling_counts1~pineBurn2$treatment)
+summary(A2)
+```
+
+
+```{r}
+ggplot(pineBurn2, aes(treatment, seedling_counts1)) +
+  geom_boxplot()
+```
+
+I think it is really interesting that only one more sample of each treatment type needed to be added to yeild a stasticially significant result, as well as a fairly small change in seedling counts. This paper was published by the USFS in 1950 and did not report a p-value.
