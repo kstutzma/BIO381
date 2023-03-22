@@ -70,6 +70,7 @@ summary(A1)
 ggplot(pineBurn1, aes(treatment, seedling_counts1)) +
   geom_boxplot()
 ```
+
 This does not yeild a significant p-value
 
 ## Changing the means
@@ -95,7 +96,7 @@ pineBurn4 <- pineBurn4 %>%
 pineBurn5 <- pineBurn4[with(pineBurn4, order(treatment)),]
 ```
   
-I decreased the first 3 treatment groups by 10 and increased the final 4 treatment groups by 50 and the p value became significant. I started with a higher value, but it did not take much change to yeild a significant p-value. 
+I decreased the first 3 treatment groups by 10 and increased the final 4 treatment groups by 50 and the p value became significant. I started with a higher values(-100 for 1st 3 groups, +300 for end 4 groups), but it did not take much change to yield a significant p-value. 
 
 ```{r}
 A3 <- aov(pineBurn4$seedling_counts1~pineBurn4$treatment)
