@@ -1,0 +1,32 @@
+---
+title: "Homework 9"
+author: "Kathleen Stutzman"
+date: "2023-03-29"
+output: html_document
+---
+
+Load in `library(tidyverse)` and `library(ggplot2)`, hidden below.
+
+```{r include=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
+
+```{r}
+source("Function_8_Stutzman.R")
+
+test_data <- get_data()
+
+rdata <- rotate_data(test_data) 
+
+calculate_stuff(rdata)
+
+graph_it(rdata)
+
+newdata <- subset_data()
+
+analyze_this()
+another_graph()
+```
+
