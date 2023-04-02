@@ -11,13 +11,13 @@
 # -------------------------------
 get_data <- function(file_name=NULL) {
   if(is.null(file_name)) {
-    d_frame <- data.frame(Burn0=rnorm(n=2, mean = 580, sd = 100),
-                          Burn1=rnorm(n=2, mean = 800, sd = 100),
-                          Burn2=rnorm(n=2, mean = 1000, sd = 100),
-                          Burn3=rnorm(n=2, mean = 1925, sd = 200),
-                          Burn4=rnorm(n=2, mean = 1925, sd = 200),
-                          Burn5=rnorm(n=2, mean = 2650, sd = 400),
-                          Burn6=rnorm(n=2, mean = 2650, sd = 400))
+    d_frame <- data.frame(Burn0=rnorm(n=6, mean = 580, sd = 100),
+                          Burn1=rnorm(n=6, mean = 800, sd = 100),
+                          Burn2=rnorm(n=6, mean = 1000, sd = 100),
+                          Burn3=rnorm(n=6, mean = 1925, sd = 200),
+                          Burn4=rnorm(n=6, mean = 1925, sd = 200),
+                          Burn5=rnorm(n=6, mean = 2650, sd = 400),
+                          Burn6=rnorm(n=6, mean = 2650, sd = 400))
   } else {
     d_frame <- read.table(file=file_name,
                           header=TRUE,
@@ -67,8 +67,13 @@ calculate_stuff <- function(x) {
 # -------------------------------
 graph_it <- function(x) {
   
-graph_anova <- ggplot(rdata, aes(treatment, seedlingcounts)) +
-  geom_violin()
+graph_anova <- ggplot(rdata, aes(treatment, seedlingcounts, fill=treatment)) +
+  geom_violin() +
+  scale_fill_brewer(palette = 1, name = "# of Annual 
+ Burns")+
+  labs(x= "Frequency of Prescribed Fire over 6 year period",
+       y= "Seedling Counts",
+       title = "Relationship between prescribed fire frequency and pine seedling abundance")
 
 return(graph_anova)
 }
@@ -113,8 +118,13 @@ subset_data <- function(x) {
 # -------------------------------
 another_graph <- function() {
   
-  graph_ttest <- ggplot(newdata, aes(x=treatment, y=seedlingcounts)) +
-    geom_boxplot()
+  graph_ttest <- ggplot(newdata, aes(x=treatment, y=seedlingcounts, fill=treatment)) +
+    geom_boxplot()+
+    scale_fill_brewer(palette=2, name= "# of Annual 
+Burns")+
+    labs(x= "Number of Annual Burns",
+         y= "Seedling Counts",
+         title = "Pine seedling abundance in areas burned annually for one & six years")
   
   return(graph_ttest)
 }

@@ -5,6 +5,16 @@ date: "2023-03-29"
 output: html_document
 ---
 
+```{r}
+#  2023-04-01
+#  Kathleen Stutzman
+#  Structured Programming with fake data
+```
+
+```{r}
+# Libraries -------------------
+```
+
 Load in `library(tidyverse)` and `library(ggplot2)`, hidden below.
 
 ```{r include=FALSE}
@@ -14,19 +24,26 @@ library(ggplot2)
 
 
 ```{r}
+# Functions -------------------
+
 source("Function_8_Stutzman.R")
 
-test_data <- get_data()
+# Global Variables -------------------
 
-rdata <- rotate_data(test_data) 
+# Program Body -------------------
 
-calculate_stuff(rdata)
+test_data <- get_data() #use get_data function to generate data based on homework 8
 
-graph_it(rdata)
+rdata <- rotate_data(test_data) #pivot the data set to make it usable
 
-newdata <- subset_data()
+calculate_stuff(rdata) # analysis of variance on created data
 
-analyze_this()
-another_graph()
+graph_it(rdata) # graph generated data
+
+newdata <- subset_data() # pull out just the data from 1 annual burn and 6 annual burns
+
+analyze_this() # t.test on 1 burn & 6 burns
+
+another_graph() # graph of subsetted data set
 ```
 
