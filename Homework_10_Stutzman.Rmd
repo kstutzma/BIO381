@@ -1,0 +1,157 @@
+---
+title: "Homework 10"
+author: "Kathleen Stutzman"
+date: "2023-04-05"
+output: html_document
+---
+
+Libraries hidden below `library(ggplot2)`, `library(dplyr)`, & `library(tidyverse)`:
+
+```{r include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+```
+
+## Question 1:
+
+```{r}
+
+#################################
+# FUNCTION: calc_zeros
+# packages: none
+# purpose: calculate the number of zeros in a numeric vector
+# input: numeric vector
+# output: count of zeros
+# -------------------------------
+calc_zeros <- function(x=c(0:99)) {
+  counter <- 0
+  for (i in seq_along(x)){
+    if (x[i] ==0)
+    counter <- counter + 1
+  }
+  
+ print(counter)
+ 
+}
+```
+
+```{r}
+calc_zeros()
+```
+
+## Question 2:
+
+```{r}
+x <- c(0:99)
+
+length(x[x == 0])
+```
+
+## Question 3:
+
+```{r}
+
+#################################
+# FUNCTION: multi_matrix
+# packages: none
+# purpose:
+# input:
+# output:
+# -------------------------------
+
+multi_matrix <- function() {
+  m <- matrix(nrow=3, ncol=3)
+  for (i in 1:nrow(m)) {
+    for (j in 1:ncol(m)){
+      m[i,j] <- i * j
+    }
+  }
+  
+ return(m)
+}
+
+```
+
+```{r}
+multi_matrix()
+```
+
+## Question 4 - A
+
+```{r}
+trt_group <- c(rep("Control",4),rep("Treatment1",4),rep("Treatment2",4))
+z <- c(runif(4) + 1, runif(4) + 10, runif(4)+25)
+df <- data.frame(trt=trt_group,res=z)
+print(df)
+```
+
+## Question 4 - B
+
+```{r}
+
+df_sim <- df
+
+#################################
+# FUNCTION: shuffle_df
+# packages: dplyr
+# purpose: randomize assignments  
+# input: dataframe
+# output: dataframe + vector
+# -------------------------------
+shuffle_df <- function(z=df_sim){
+  df_sim$res <- sample(df_sim$res)
+  sim <- tapply(df_sim$res,df_sim$trt,mean)
+
+ return(sim)
+}
+
+```
+
+## Question 4 - C:
+
+```{r}
+m <- expand.grid(reps=NA,
+                 control=NA,
+                 treatment1=NA,
+                 treatment2=NA)
+
+
+for (i in 1:100) {
+  m[i,1] <- i
+  m[i,2:4] <- shuffle_df()
+  
+}
+
+```
+
+## Question 4 - D:
+
+```{r}
+
+qplot(x=m$control, geom = "histogram",xlab = "Mean",ylab="Frequency",binwidth=.5, main="Control")
+
+qplot(x=m$treatment1, geom = "histogram",xlab = "Mean",ylab="Frequency",binwidth=.5, main="Treatment 1")
+
+qplot(x=m$treatment2, geom = "histogram",xlab = "Mean",ylab="Frequency",binwidth=.5, main="Treatment 2")
+```
+
+
+## Now with ggplot2
+
+```{r}
+df_2 <- m %>% 
+  pivot_longer(cols=c(control,
+                      treatment1,
+                      treatment2),
+               names_to = "category", 
+               values_to = "mean")
+  
+  print(df_2)
+  
+p1 <- ggplot(data=df_2)
+p1 + geom_histogram(mapping = aes(x=mean, fill=category)) +
+  facet_wrap(~category) +
+  theme(legend.position = "bottom")
+```
+
