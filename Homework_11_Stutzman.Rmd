@@ -110,8 +110,6 @@ for (i in seq_along(file_names)){
   
 }
 
-#####################
-
     write.table(cat("# Summary stats for ",
                     "batch processing of ANOVA","\n",
                     "# timestamp: ",as.character(Sys.time()),"\n",
@@ -134,10 +132,8 @@ for (i in seq_along(file_names)){
 For loop to create boxplots using ggplot
 
 ```{r}
-#trying things but stuff has stopped running
-
 myplots2 <- list()
-# 
+ 
 for (i in seq_along(file_names)){
   data <- read.table(file=paste(file_folder,file_names[i],sep=""),
                      sep = ",",
@@ -161,7 +157,7 @@ for (i in seq_along(file_names)){
   myplots2[[i]] <- z
 
   }
-# 
+
 print(myplots2)
 
 ```

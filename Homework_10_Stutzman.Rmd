@@ -55,9 +55,9 @@ length(x[x == 0])
 #################################
 # FUNCTION: multi_matrix
 # packages: none
-# purpose:
-# input:
-# output:
+# purpose: to multiply the two loops in a matrix
+# input: empty matrix
+# output: matrix filled with multiplied loops
 # -------------------------------
 
 multi_matrix <- function() {
@@ -150,24 +150,15 @@ df_2 <- m %>%
   print(df_2)
   
 p1 <- ggplot(data=df_2)
-p1 + geom_histogram(mapping = aes(x=mean, fill=category)) +
+p1 + geom_histogram(mapping = aes(x=mean, fill=category),bins = 15) +
   facet_wrap(~category) +
   theme(legend.position = "bottom")
 ```
 
 
 ```{r}
-# df_2 <- m %>% 
-#   pivot_longer(cols=c(control,
-#                       treatment1,
-#                       treatment2),
-#                names_to = "category", 
-#                values_to = "mean")
-#   
-#   print(df_2)
-  
 p1 <- ggplot(data=df)
-p1 + geom_histogram(mapping = aes(x=res, fill=trt)) +
+p1 + geom_histogram(mapping = aes(x=res, fill=trt), bins = 15) +
                       facet_wrap(~trt) +
                       theme(legend.position = "bottom")
 ```
