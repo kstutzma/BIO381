@@ -155,3 +155,21 @@ p1 + geom_histogram(mapping = aes(x=mean, fill=category)) +
   theme(legend.position = "bottom")
 ```
 
+
+```{r}
+# df_2 <- m %>% 
+#   pivot_longer(cols=c(control,
+#                       treatment1,
+#                       treatment2),
+#                names_to = "category", 
+#                values_to = "mean")
+#   
+#   print(df_2)
+  
+p1 <- ggplot(data=df)
+p1 + geom_histogram(mapping = aes(x=res, fill=trt)) +
+                      facet_wrap(~trt) +
+                      theme(legend.position = "bottom")
+```
+
+The reshuffled means have a much wider distribution and are much more similar to each other than the original means, which have a very narrow distribution and no overlap. 

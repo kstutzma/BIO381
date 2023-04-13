@@ -1,0 +1,11 @@
+# Summary stats for batch processing of ANOVA
+# timestamp: 2023-04-13 15:36:49
+# KAS
+# ------------------------
+
+"ID","file_name","F_val","P_val"
+1,"Burned_Data.csv",3.51524606690004,0.0334114065341501
+2,"Control_Data.csv",2.48956925468628e+31,2.18940125024817e-155
+3,"Mow_Burned_Data.csv",310.961267013948,3.14958932401323e-06
+4,"No_Treatment_SPB.csv",25206.4667566097,3.96713754023142e-05
+5,"Thinned_Data.csv",4.97787335132817,0.00395121230669568

@@ -1,0 +1,100 @@
+﻿Site,Plot_Num,Species_Code,Latin_Name,Total_Num,Browsed_Num,Stump Sprout_Num,Germinate_Num
+TNCOZ3,23,QUIL,Quercus ilicifolia,2,0,0,0
+TNCOZ3,23,PIST,Pinus strobus,2,0,0,0
+TNCOZ3,24,PIST,Pinus strobus,2,0,0,0
+TNCOZ3,24,QUIL,Quercus ilicifolia,2,0,0,0
+TNCOZ3,25,QUIL,Quercus ilicifolia,3,0,0,0
+TNCOZ3,26,PIST,Pinus strobus,1,0,0,0
+TNCOZ3,26,QUIL,Quercus ilicifolia,4,0,0,0
+TNCOZ3,27,PIST,Pinus strobus,2,0,0,0
+TNCOZ3,28,ACRU,Acer rubrum,1,0,0,0
+TNCOZ3,29,QUIL,Quercus ilicifolia,8,0,0,0
+TNCOZ3,29,PIST,Pinus strobus,2,0,0,1
+TNCOZ3,30,PIST,Pinus strobus,7,0,0,2
+TNCOZ3,30,QUIL,Quercus ilicifolia,6,0,0,0
+TNCOZ3,31,PIST,Pinus strobus,4,0,0,0
+TNCOZ3,32,QUIL,Quercus ilicifolia,1,0,0,0
+TNCOZ3,32,FAGR,Fagus grandifolia,1,0,0,0
+TNCOZ3,33,PIST,Pinus strobus,4,0,0,0
+TNCOZ3,34,NASP,No species found,0,0,0,0
+TNCOZ3,35,QUIL,Quercus ilicifolia,5,0,0,0
+TNCOZ3,35,PIST,Pinus strobus,10,0,0,0
+TNCOZ3,35,BEPO,Betula populifolia,11,11,11,0
+TNCOZ3,35,ACRU,Acer rubrum,1,0,1,0
+TNCOZ3,36,ACRU,Acer rubrum,3,0,0,2
+TNCOZ3,36,PIST,Pinus strobus,1,0,0,1
+TNCOZ3,37,QUIL,Quercus ilicifolia,3,0,0,0
+TNCOZ3,38,PIST,Pinus strobus,2,0,0,0
+TNCOZ3,38,QUIL,Quercus ilicifolia,23,0,0,0
+TNCOZ3,39,PIRI,Pinus rigida,1,0,0,0
+TNCOZ3,39,ACRU,Acer rubrum,1,0,0,0
+TNCOZ3,39,QUIL,Quercus ilicifolia,2,0,0,0
+TNCOZ3,40,QUIL,Quercus ilicifolia,6,0,0,0
+TNCOZ3,41,NASP,No species found,0,0,0,0
+TNCOZ3,42,NASP,No species found,0,0,0,0
+TNCOZ3,43,ACRU,Acer rubrum,3,0,0,0
+RPD2B2,70,PIRI,Pinus rigida,3,0,0,3
+RPD2B2,70,SAAL,Sassafras albidum,1,0,0,1
+RPD2B2,71,QUIL,Quercus ilicifolia,2,0,0,0
+RPD2B2,71,PIRI,Pinus rigida,4,0,0,0
+RPD2B2,72,PIRI,Pinus rigida,1,0,0,0
+RPD2B2,73,QUAL,Quercus alba,1,0,0,0
+RPD2B2,73,QUCO,Quercus coccinea,1,0,0,0
+RPD2B2,73,QUIL,Quercus ilicifolia,1,0,0,0
+RPD2B2,73,AMSP,Amelanchier spp.,1,0,0,0
+RPD2B2,74,QUAL,Quercus alba,1,0,0,0
+RPD2B2,75,PIRI,Pinus rigida,3,2,0,1
+RPD2B2,76,QUCO,Quercus coccinea,1,0,0,0
+RPD2B2,76,PIRI,Pinus rigida,1,0,0,0
+RPD2B2,77,PIRI,Pinus rigida,1,0,0,0
+RPD2B2,77,QUCO,Quercus coccinea,1,0,0,0
+RPD2B2,77,QUIL,Quercus ilicifolia,1,0,0,0
+RPD2B2,78,QUCO,Quercus coccinea,1,0,0,0
+RPD2B2,79,PIRI,Pinus rigida,1,0,0,0
+RPD2B2,80,QUIL,Quercus ilicifolia,9,0,0,0
+RPD2B2,81,QUAL,Quercus alba,2,0,2,0
+RPD2B2,81,QUCO,Quercus coccinea,1,0,0,0
+RPD2B2,82,SAAL,Sassafras albidum,1,0,0,0
+RPD2B2,82,QUAL,Quercus alba,1,0,0,0
+RPD2B2,82,PIRI,Pinus rigida,3,0,0,0
+RPD2B2,83,QUIL,Quercus ilicifolia,3,0,0,0
+RPD2B2,84,QUVE,Quercus velutina,1,0,0,0
+RPD2B2,84,QUCO,Quercus coccinea,1,0,0,0
+RPD2B2,85,QUIL,Quercus ilicifolia,4,0,0,0
+RPD2B2,85,QUCO,Quercus coccinea,2,0,0,0
+RPD2B2,86,QUCO,Quercus coccinea,3,0,0,1
+RPD2B2,86,QUIL,Quercus ilicifolia,2,0,0,0
+RPD2B2,87,ACRU,Acer rubrum,1,0,0,0
+RPD2B4,106,QUAL,Quercus alba,1,0,0,0
+RPD2B4,107,QUCO,Quercus coccinea,1,0,0,0
+RPD2B4,108,NASP,No species found,0,0,0,0
+RPD2B4,109,QUCO,Quercus coccinea,1,0,0,0
+RPD2B4,110,NASP,No species found,0,0,0,0
+RPD2B4,111,QUCO,Quercus coccinea,4,0,0,0
+RPD2B4,111,QUAL,Quercus alba,1,0,0,0
+RPD2B4,112,PIRI,Pinus rigida,4,0,0,0
+RPD2B4,112,QUAL,Quercus alba,1,0,0,0
+RPD2B4,113,QUCO,Quercus coccinea,1,0,0,0
+RPD2B4,114,QUCO,Quercus coccinea,1,0,0,0
+RPD2B4,115,PIRI,Pinus rigida,1,0,0,0
+RPD2B4,116,QUCO,Quercus coccinea,3,0,0,0
+RPD2B4,117,NASP,No species found,0,0,0,0
+RPD2B4,118,QUCO,Quercus coccinea,3,0,0,0
+RPD2B4,119,NASP,No species found,0,0,0,0
+RPD2B4,120,PIRI,Pinus rigida,1,0,0,0
+RPD2B4,120,QUAL,Quercus alba,1,0,0,0
+RPD2B4,121,NASP,No species found,0,0,0,0
+RPD2B4,122,QUIL,Quercus ilicifolia,5,0,0,0
+RPD2B4,123,NASP,No species found,0,0,0,0
+RPD2B9,187,QUIL,Quercus ilicifolia,3,0,0,0
+RPD2B9,187,PIRI,Pinus rigida,1,0,0,0
+RPD2B9,188,PIRI,Pinus rigida,5,0,0,0
+RPD2B9,188,QUAL,Quercus alba,1,0,0,0
+RPD2B9,189,QUIL,Quercus ilicifolia,1,0,0,0
+RPD2B9,189,QUVE,Quercus velutina,2,0,0,0
+RPD2B9,190,PIRI,Pinus rigida,1,0,0,0
+RPD2B9,191,QUCO,Quercus coccinea,2,0,0,0
+RPD2B9,192,QUIL,Quercus ilicifolia,3,0,0,0
+RPD2B9,193,QUIL,Quercus ilicifolia,4,0,0,0
+RPD2B9,194,PIRI,Pinus rigida,1,0,0,0
+RPD2B9,195,QUCO,Quercus coccinea,2,0,0,1

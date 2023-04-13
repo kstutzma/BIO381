@@ -1,0 +1,61 @@
+﻿Site,Plot_Num,Species_Code,Latin_Name,Total_Num,Browsed_Num,Stump Sprout_Num,Germinate_Num
+WBT,45,NASP,No species found,0,0,0,0
+WBT,46,NASP,No species found,0,0,0,0
+WBT,47,QUAL,Quercus alba,1,0,0,0
+WBT,48,QUCO,Quercus coccinea,2,2,0,0
+WBT,48,QUAL,Quercus alba,2,2,0,0
+WBT,49,QUAL,Quercus alba,2,0,0,0
+WBT,50,QUAL,Quercus alba,1,0,0,0
+WBT,51,QUIL,Quercus ilicifolia,1,0,0,0
+WBT,52,NASP,No species found,0,0,0,0
+WBT,53,NASP,No species found,0,0,0,0
+WBT,54,QUAL,Quercus alba,3,0,0,0
+WBT,55,NASP,No species found,0,0,0,0
+WBT,56,NASP,No species found,0,0,0,0
+WBT,57,SAAL,Sassafras albidum,1,1,0,0
+WBT,58,NASP,No species found,0,0,0,0
+WBT,59,QUCO,Quercus coccinea,2,0,0,0
+WBT,59,PRSE,Prunus serotina,1,0,0,0
+WBT,60,PIRI,Pinus rigida,1,1,0,0
+WBT,61,PIRI,Pinus rigida,2,1,0,0
+WBT,61,QUCO,Quercus coccinea,1,1,0,0
+WBT,62,NASP,No species found,0,0,0,0
+WBT,63,QUAL,Quercus alba,1,0,0,0
+WBT,64,QUCO,Quercus coccinea,1,1,0,0
+WBT,64,PRSE,Prunus serotina,1,0,0,1
+WBT,65,PRSE,Prunus serotina,3,0,0,0
+WBT,65,SAAL,Sassafras albidum,1,1,0,0
+WBT,66,PRSE,Prunus serotina,1,0,0,1
+WBT,67,QUAL,Quercus alba,2,0,0,0
+WBT,68,NASP,No species found,0,0,0,0
+WBT,69,QUCO,Quercus coccinea,3,0,0,0
+SHCP1,214,ACRU,Acer rubrum,7,0,0,7
+SHCP1,215,SAAL,Sassafras albidum,1,0,0,0
+SHCP1,215,ACRU,Acer rubrum,14,0,0,14
+SHCP1,216,ACRU,Acer rubrum,5,0,0,5
+SHCP1,217,ACRU,Acer rubrum,49,0,0,49
+SHCP1,218,ACRU,Acer rubrum,16,0,0,16
+SHCP1,218,SAAL,Sassafras albidum,1,0,0,1
+SHCP1,219,ACRU,Acer rubrum,15,0,0,15
+SHCP1,220,ACRU,Acer rubrum,5,0,0,5
+SHCP1,221,ACRU,Acer rubrum,18,0,0,18
+SHCP1,222,ACRU,Acer rubrum,19,0,0,18
+SHCP1,223,ACRU,Acer rubrum,3,0,0,3
+SHCP1,223,SAAL,Sassafras albidum,1,1,0,0
+SHCP1,224,ACRU,Acer rubrum,19,0,0,19
+SHCP1,225,ACRU,Acer rubrum,18,0,0,18
+SHCP1,226,ACRU,Acer rubrum,28,0,0,26
+SHCP1,227,ACRU,Acer rubrum,29,0,0,29
+SHCP1,228,PIRI,Pinus rigida,1,0,0,0
+SHCP1,228,ACRU,Acer rubrum,8,0,0,7
+SHCP1,229,ACRU,Acer rubrum,34,0,0,34
+SHCP1,230,ACRU,Acer rubrum,21,0,0,17
+SHCP1,230,NYSY,Nyssa sylvatica,2,0,0,2
+SHCP1,231,PIRI,Pinus rigida,3,0,0,3
+SHCP1,231,ACRU,Acer rubrum,14,0,0,14
+SHCP1,231,NYSY,Nyssa sylvatica,1,1,0,0
+SHCP1,232,PIRI,Pinus rigida,2,0,0,2
+SHCP1,233,ACRU,Acer rubrum,8,0,0,8
+SHCP1,234,ACRU,Acer rubrum,10,0,0,10
+SHCP1,235,PIRI,Pinus rigida,2,1,0,0
+SHCP1,235,ACRU,Acer rubrum,7,0,0,7

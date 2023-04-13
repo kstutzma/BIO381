@@ -1,0 +1,79 @@
+﻿Site,Plot_Num,Species_Code,Latin_Name,Total_Num,Browsed_Num,Stump Sprout_Num,Germinate_Num
+RPD2B3,88,QUIL,Quercus ilicifolia,10,0,0,0
+RPD2B3,89,QUCO,Quercus coccinea,4,0,0,0
+RPD2B3,90,QUCO,Quercus coccinea,20,0,0,8
+RPD2B3,91,QUCO,Quercus coccinea,5,0,0,0
+RPD2B3,92,QUCO,Quercus coccinea,2,0,0,0
+RPD2B3,93,QUCO,Quercus coccinea,4,0,0,1
+RPD2B3,93,QUIL,Quercus ilicifolia,1,0,0,0
+RPD2B3,93,QUVE,Quercus velutina,3,0,0,0
+RPD2B3,94,QUAL,Quercus alba,1,0,0,0
+RPD2B3,94,QUVE,Quercus velutina,1,0,0,0
+RPD2B3,95,NASP,No species found,0,0,0,0
+RPD2B3,96,QUAL,Quercus alba,3,0,0,0
+RPD2B3,96,QUCO,Quercus coccinea,1,0,0,0
+RPD2B3,96,QUIL,Quercus ilicifolia,1,0,0,0
+RPD2B3,97,QUCO,Quercus coccinea,4,0,0,0
+RPD2B3,97,PIRI,Pinus rigida,1,0,0,0
+RPD2B3,98,PIRI,Pinus rigida,1,0,0,0
+RPD2B3,98,QUCO,Quercus coccinea,3,1,0,0
+RPD2B3,99,QUCO,Quercus coccinea,5,0,0,0
+RPD2B3,100,QUCO,Quercus coccinea,2,0,0,0
+RPD2B3,100,SAAL,Sassafras albidum,1,0,0,0
+RPD2B3,101,QUCO,Quercus coccinea,1,0,0,0
+RPD2B3,102,NASP,No species found,0,0,0,0
+RPD2B3,103,QUCO,Quercus coccinea,10,0,0,0
+RPD2B3,103,QUVE,Quercus velutina,2,0,0,0
+RPD2B3,104,QUCO,Quercus coccinea,3,0,0,0
+RPD2B3,105,QUVE,Quercus velutina,1,0,0,0
+RPD2B7,124,QUVE,Quercus velutina,1,0,0,0
+RPD2B7,124,QUCO,Quercus coccinea,3,0,0,0
+RPD2B7,125,QUCO,Quercus coccinea,2,0,0,0
+RPD2B7,125,QUVE,Quercus velutina,2,2,0,0
+RPD2B7,126,QUCO,Quercus coccinea,3,0,0,0
+RPD2B7,127,NASP,No species found,0,0,0,0
+RPD2B7,128,NASP,No species found,0,0,0,0
+RPD2B7,129,QUCO,Quercus coccinea,6,0,0,0
+RPD2B7,129,QUAL,Quercus alba,1,0,0,0
+RPD2B7,130,QUAL,Quercus alba,5,0,0,0
+RPD2B7,130,QUCO,Quercus coccinea,2,0,0,0
+RPD2B7,131,QUCO,Quercus coccinea,1,0,0,0
+RPD2B7,132,QUCO,Quercus coccinea,1,0,0,0
+RPD2B7,133,PIRI,Pinus rigida,1,0,0,1
+RPD2B7,134,QUAL,Quercus alba,1,0,0,0
+RPD2B7,134,QUCO,Quercus coccinea,3,0,0,0
+RPD2B7,135,QUVE,Quercus velutina,1,0,0,0
+RPD2B7,135,QUCO,Quercus coccinea,1,0,0,0
+RPD2B7,135,QUAL,Quercus alba,1,0,0,0
+RPD2B7,136,QUAL,Quercus alba,2,0,0,0
+RPD2B7,137,NASP,No species found,0,0,0,0
+RPD2B7,138,QUCO,Quercus coccinea,1,0,0,0
+RPD2B7,139,QUCO,Quercus coccinea,4,0,0,0
+RPD2B7,139,QUAL,Quercus alba,1,0,0,0
+RPD2B7,140,QUAL,Quercus alba,1,0,0,0
+RPD2B7,140,QUCO,Quercus coccinea,2,0,0,0
+RPD2B7,140,CASP,Carya sp.,1,0,0,0
+RPD2B7,141,QUVE,Quercus velutina,6,1,0,0
+RPD2B8,142,QUCO,Quercus coccinea,6,0,0,0
+RPD2B8,143,NASP,No species found,0,0,0,0
+RPD2B8,144,QUVE,Quercus velutina,1,0,0,0
+RPD2B8,144,QUCO,Quercus coccinea,1,0,0,0
+RPD2B8,145,QUCO,Quercus coccinea,3,0,0,0
+RPD2B8,146,QUCO,Quercus coccinea,2,0,0,0
+RPD2B8,147,NASP,No species found,0,0,0,0
+RPD2B8,148,QUCO,Quercus coccinea,12,0,0,0
+RPD2B8,148,QUVE,Quercus velutina,6,0,0,0
+RPD2B8,149,QUCO,Quercus coccinea,2,0,0,0
+RPD2B8,149,QUAL,Quercus alba,2,0,0,1
+RPD2B8,150,QUCO,Quercus coccinea,3,0,0,0
+RPD2B8,151,QUCO,Quercus coccinea,3,0,0,0
+RPD2B8,151,QUVE,Quercus velutina,1,0,0,0
+RPD2B8,152,QUCO,Quercus coccinea,2,0,0,1
+RPD2B8,153,QUCO,Quercus coccinea,1,1,0,0
+RPD2B8,154,QUCO,Quercus coccinea,13,0,13,0
+RPD2B8,155,PIRI,Pinus rigida,1,0,0,1
+RPD2B8,156,QUCO,Quercus coccinea,1,0,0,0
+RPD2B8,157,QUCO,Quercus coccinea,4,0,0,1
+RPD2B8,158,QUVE,Quercus velutina,1,0,1,0
+RPD2B8,159,QUCO,Quercus coccinea,50,0,0,13
+RPD2B8,159,QUVE,Quercus velutina,3,0,0,0
