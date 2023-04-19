@@ -1,0 +1,187 @@
+---
+title: "Homework 12"
+author: "Kathleen Stutzman"
+date: "2023-04-19"
+output: html_document
+---
+
+Hiding libaries of ggplot2, ggthemes, patchwork, dplyr, and tidyverse below
+
+```{r include=FALSE}
+library(ggplot2)
+library(ggthemes)
+library(patchwork)
+library(dplyr)
+library(tidyverse)
+```
+
+```{r}
+# Global variables -------------------
+
+file_folder <- "DatasetsforLab/"
+
+# Body -------------------
+
+file_names <- list.files(path=file_folder)
+
+```
+
+for loop to read in the files
+
+```{r}
+for (i in seq_along(file_names)){
+  assign(paste0(file_names[i], i),
+         read.csv(paste0(file_folder, file_names[i])))
+}
+```
+
+
+Function to group the data by Site and Species
+
+```{r}
+#################################
+# FUNCTION: group_data2
+# packages: dplyr, tidyverse
+# purpose: to group data by site, create a number of plots for each site, and create a average of counts for each species found at each site
+# input: pitch pine treatment data csv
+# output: sorted dataframe with n unique plots and spec_mean calculated
+# -------------------------------
+group_data2 <- function(d=NULL) {
+  if(is.null(d)){
+    x_var <- runif(3)
+    y_var<- sample(LETTERS, 3)
+    d <- data.frame(x_var,y_var)
+  }
+  
+  d <- d %>% 
+    group_by(Site) %>% 
+    group_by(Species_Code) %>% 
+    select(Site, Plot_Num, Species_Code, Latin_Name, Total_Num)
+  
+  return(d)
+  
+}
+```
+
+Grouping the files
+
+```{r}
+BD <- group_data2(Burned_Data.csv1)
+CD <- group_data2(Control_Data.csv2)
+MBD <- group_data2(Mow_Burned_Data.csv3)
+NT_SPB <- group_data2(No_Treatment_SPB.csv4)
+TD <- group_data2(Thinned_Data.csv5)
+
+```
+
+Testing the code before putting it in the for loop
+
+```{r}
+p1 <- ggplot(data = BD) +
+  aes(x=Species_Code, y=Total_Num, fill=Site) +
+  theme_classic(base_family = "serif") +
+  geom_boxplot() +
+  labs(x="Species Code", y="Seedlings Counts", title = "Small Seedling (<50cm) Abundance across Treatment Units") +
+  theme(legend.position = "bottom")+
+  guides(x=guide_axis(angle = 45)) +
+  ylim (0,20)
+  
+p1
+```
+
+Now as a for loop:
+
+```{r}
+myplots2 <- list()
+ 
+for (i in seq_along(file_names)){
+  data <- read.table(file=paste(file_folder,file_names[i],sep=""),
+                     sep = ",",
+                     header=TRUE)
+   . <- group_data2(data)
+   
+   z <- ggplot(data = .) +
+     aes(x=Species_Code, y=Total_Num, fill=Site) +
+     theme_classic(base_family = "serif") +
+     geom_boxplot() +
+     labs(x="Species Code", y="Seedlings Counts", title = "Small Seedling (<50cm) Abundance across Treatment Units") +
+     theme(legend.position = "bottom")+
+     guides(x=guide_axis(angle = 45)) +
+     ylim (0,20)
+   
+     myplots2[[i]] <- z
+
+  }
+
+print(myplots2)
+```
+
+Trying out the facet grid stuff
+
+```{r}
+
+f1 <- ggplot(data=BD)+
+  aes(x=Species_Code, 
+      y=Total_Num,
+      fill=Species_Code) +
+  theme_classic(base_family = "serif") +
+  geom_boxplot() +
+  labs(x="Species Code", y="Seedlings Counts", title = "Small Seedling (<50cm) Abundance across Treatment Units") +
+  theme(legend.key.size = unit(.2, 'cm'), legend.title = element_text(size=8), legend.text = element_text(size=8))+
+  guides(x=guide_axis(angle = 45)) +
+  ylim (0,15) +
+  scale_fill_discrete(name = "Species Code")+
+  facet_grid(Site~.)
+
+print(f1)
+```
+
+
+Now in a for loop
+
+```{r}
+
+myplots3 <- list()
+ 
+for (i in seq_along(file_names)){
+  data <- read.table(file=paste(file_folder,file_names[i],sep=""),
+                     sep = ",",
+                     header=TRUE)
+  
+   . <- group_data2(data)
+   
+   f1 <- ggplot(data=.)+
+  aes(x=Species_Code, 
+      y=Total_Num,
+      fill=Species_Code) +
+  theme_classic(base_family = "serif") +
+  geom_boxplot() +
+  labs(x="Species Code", y="Seedlings Counts", title = "Small Seedling (<50cm) Abundance across Treatment Units") +
+  theme(legend.key.size = unit(.2, 'cm'), legend.title = element_text(size=8), legend.text = element_text(size=8))+
+  guides(x=guide_axis(angle = 45)) +
+  ylim (0,20) +
+  scale_fill_discrete(name = "Species Code")+
+     facet_grid(Site~.)
+   
+   myplots3[[i]] <- f1
+
+  }
+
+print(myplots3)
+
+
+```
+
+
+
+
+ 
+```{r eval=FALSE, include=FALSE}
+# Burn_Data <- "DatasetsforLab/Burned_Data.csv"
+# Control_Data <- "DatasetsforLab/Control_Data.csv"
+# Mow_Burn_Data <- "DatasetsforLab/Mow_Burned_Data.csv"
+# No_Treat_SPB_Data <- "DatasetsforLab/No_Treatment_SPB_Data.csv"
+# Thin_Data <- "DatasetsforLab/Thinned_Data.csv"
+# 
+# allfile <- c(Burn_Data,Control_Data,Mow_Burn_Data,
+```   
