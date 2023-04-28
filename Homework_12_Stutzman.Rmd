@@ -5,7 +5,7 @@ date: "2023-04-19"
 output: html_document
 ---
 
-Hiding libaries of ggplot2, ggthemes, patchwork, dplyr, and tidyverse below
+Hiding libaries of ggplot2, ggthemes, patchwork, dplyr, tidyverse, and wesanderson below
 
 ```{r include=FALSE}
 library(ggplot2)
@@ -13,6 +13,7 @@ library(ggthemes)
 library(patchwork)
 library(dplyr)
 library(tidyverse)
+library(wesanderson)
 ```
 
 ```{r}
@@ -104,7 +105,7 @@ for (i in seq_along(file_names)){
      aes(x=Species_Code, y=Total_Num, fill=Site) +
      theme_classic(base_family = "serif") +
      geom_boxplot() +
-     labs(x="Species Code", y="Seedlings Counts", title = "Small Seedling (<50cm) Abundance across Treatment Units") +
+     labs(x="Species Code", y="Seedlings Counts", title = "Small Seedling (<50cm) Abundance across Treatment Units", subtitle =  file_names[i]) +
      theme(legend.position = "bottom")+
      guides(x=guide_axis(angle = 45)) +
      ylim (0,20)
@@ -116,22 +117,24 @@ for (i in seq_along(file_names)){
 print(myplots2)
 ```
 
-Trying out the facet grid stuff
+Trying out the facet grid stuff. I didn't want to do two sets of boxplots, so I changed this to points and worked on color stuff.
 
 ```{r}
+my_cols <- c(wes_palettes$Darjeeling1, wes_palettes$Zissou1, wes_palettes$Royal2)
 
 f1 <- ggplot(data=BD)+
   aes(x=Species_Code, 
       y=Total_Num,
-      fill=Species_Code) +
+      col=Species_Code) +
   theme_classic(base_family = "serif") +
-  geom_boxplot() +
+  geom_point() +
   labs(x="Species Code", y="Seedlings Counts", title = "Small Seedling (<50cm) Abundance across Treatment Units") +
   theme(legend.key.size = unit(.2, 'cm'), legend.title = element_text(size=8), legend.text = element_text(size=8))+
   guides(x=guide_axis(angle = 45)) +
   ylim (0,15) +
   scale_fill_discrete(name = "Species Code")+
-  facet_grid(Site~.)
+  facet_grid(Site~.)+
+  scale_color_manual(values = my_cols)
 
 print(f1)
 ```
@@ -153,15 +156,17 @@ for (i in seq_along(file_names)){
    f1 <- ggplot(data=.)+
   aes(x=Species_Code, 
       y=Total_Num,
-      fill=Species_Code) +
+      col=Species_Code) +
   theme_classic(base_family = "serif") +
-  geom_boxplot() +
+  geom_point() +
   labs(x="Species Code", y="Seedlings Counts", title = "Small Seedling (<50cm) Abundance across Treatment Units") +
   theme(legend.key.size = unit(.2, 'cm'), legend.title = element_text(size=8), legend.text = element_text(size=8))+
   guides(x=guide_axis(angle = 45)) +
   ylim (0,20) +
   scale_fill_discrete(name = "Species Code")+
-     facet_grid(Site~.)
+     facet_grid(Site~.)+
+     scale_color_manual(values = my_cols)
+     
    
    myplots3[[i]] <- f1
 
